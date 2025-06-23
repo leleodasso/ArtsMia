@@ -33,7 +33,7 @@ class View(ft.UserControl):
         self._btnCompConnessa = ft.ElevatedButton(text="Cerca Connessa", on_click=self._controller.handleCompConnessa,
                                                   bgcolor="orange",
                                                   color="white",
-                                                  width=200)
+                                                  width=200, disabled = True)
 
         self._page.controls.append(ft.Row([self._btnAnalizzaOggetti, self._txtIdOggetto, self._btnCompConnessa],
                                           alignment=ft.MainAxisAlignment.CENTER))
@@ -42,6 +42,14 @@ class View(ft.UserControl):
         self.txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)
         self._page.controls.append(self.txt_result)
         self._page.update()
+
+        self._ddLun = ft.Dropdown(label="lun")
+        self._btnCerca = ft.ElevatedButton(text="Cerca Oggetti",on_click=self._controller.handleCerca)
+        self._page.controls.append(self._ddLun)
+        self._page.controls.append(self._btnCerca)
+        self._page.update()
+
+
 
     @property
     def controller(self):
